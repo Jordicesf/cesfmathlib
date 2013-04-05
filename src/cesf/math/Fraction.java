@@ -1,15 +1,17 @@
 package cesf.math;
 
-/** Classe que representa fraccions enteres.
+/** 
+ * <p>Classe que representa fraccions enteres.</p>
  * <p>Aquesta &eacute;s una classe inmutable.</p>
- * @author Iv&aacute;n Raja
+ * @author JordiCesf
  */
 public class Fraction {
 
 	private final int num;
 	private final int den;
 	
-	/**Constructor per defecte de la classe Fraction.
+	/**
+	 * <p>Constructor per defecte de la classe Fraction.</p>
 	 * <p>Aqu&iacute; s'inicialitzen les variables utilitzades a la classe: num i den.</p>
 	 */
 	public Fraction() { 
@@ -17,8 +19,9 @@ public class Fraction {
 		den=1;
 	}
 	
-	/** Constructor de la classe Fraction.
-	 * <p>Aquest constructor rep dos par&agrave;metres: el numerador i el denominador respectivament.</p>
+	/** 
+	 * <p>Constructor de la classe Fraction.</p>
+	 * <p>contructor que rep numerador i denominador.</p>
 	 * <p>El denominador proporcionat no pot ser mai zero. Si ho fos, retornaria una excepci&oacute;.</p>
 	 * @param num <p>Variable corresponent al numerador.</p>
 	 * @param den <p>Variable corresponent al denominador.</p>
@@ -48,8 +51,7 @@ public class Fraction {
 		return x;
 	}
 	
-	/**
-	 * 
+	/** 
 	 * @param a Una fracci&oacute;.
 	 * @return Valor en format num&egrave;ric de la fracci&oacute; en versi&oacute; est&agrave;tica.
 	 */
@@ -58,14 +60,16 @@ public class Fraction {
 		return x;		
 	}
 	
-	/** Funci&oacute; que retorna una representaci&oacute; en cadena de text.
+	/** 
+	 * <p>Funci&oacute; que retorna una representaci&oacute; en cadena de text.</p>
 	 * @return Representaci&oacute; formatada d'una fracci&oacute; en cadena de text.
 	 */
 	public String toString() {
 		return this.num + "/" + this.den;
 	}
 	
-	/** Funci&oacute; que simplifica la fracci&oacute; al m&agrave;xim.
+	/** 
+	 * <p>Funci&oacute; que simplifica lo maxim possible la fraccio</p>
 	 * @return Fracci&oacute; reduida.
 	 */
 	public Fraction reduce() {
@@ -76,7 +80,8 @@ public class Fraction {
 		return new Fraction(n, d);
 	}
 	
-	/** Funci&oacute; que suma dues fraccions.
+	/** 
+	 * <p>Funcio la qual suma dues fraccions</p>
 	 * @param b Una fracci&oacute;.
 	 * @return Suma de dues fraccions posteriorment reduides.
 	 */
@@ -86,7 +91,8 @@ public class Fraction {
 		return new Fraction(n, d).reduce();
 	}
 	
-	/** Funci&oacute; que resta dues fraccions.
+	/** 
+	 * <p>Funci&oacute; la qual resta dues fraccions.</p>
 	 * @param b Una fracci&oacute;.
 	 * @return Resta de dues fraccions posteriorment reduides.
 	 */
@@ -96,7 +102,8 @@ public class Fraction {
 		return new Fraction(n, d).reduce();
 	}
 	
-	/** Funci&oacute; que multiplica dues fraccions.
+	/** 
+	 * <p>Funci&oacute; la qual multiplica dues fraccions</p>
 	 * @param b Una fracci&oacute;.
 	 * @return Multiplicaci&oacute; de dues fraccions posteriorment reduides.
 	 */
@@ -106,7 +113,8 @@ public class Fraction {
 		return new Fraction(n, d).reduce();
 	}
 	
-	/** Funci&oacute; que multiplica una fracci&oacute; per un nombre proporcionat.
+	/** 
+	 * Funci&oacute; la qual multiplica una fraccio pel nombre que introdueixes.
 	 * @param x Un nombre.
 	 * @return Multiplicaci&oacute; d'una fracci&oacute; i un nombre posteriorment reduida.
 	 */
@@ -116,7 +124,8 @@ public class Fraction {
 		return new Fraction(n, d).reduce();
 	}
 	
-	/** Funci&oacute; que divideix dues fraccions.
+	/**
+	 * <p> Funci&oacute; la qual divideixes dues fraccions.</p>
 	 * @param b Una fracci&oacute;.
 	 * @return Divisi&oacute; de dues fraccions posteriorment reduides.
 	 */
@@ -129,7 +138,8 @@ public class Fraction {
 		return new Fraction(this.den, this.num).reduce();
 	}
 	
-	/** Funci&oacute; que troba el m&iacute;nim com&uacute; divisor del numerador i denominador.
+	/** 
+	 * <p>Funci&oacute; que calcula el MCD del numerador i denominador.</p>
 	 * @param a Un numerador.
 	 * @param b Un denominador.
 	 * @return MCD del numerador i denominador proporcionats.
@@ -145,7 +155,8 @@ public class Fraction {
 	}
 
 	// compara dos fraccions
-	/** Funci&oacute; que compara dues fraccions.
+	/**
+	 *  <p>Funci&oacute; que compara dues fraccions.</p>
 	 * @param b Una fracci&oacute;.
 	 * @return Retorna verdader si les fraccions s&oacute;n iguals. Retorna fals si no ho s&oacute;n.
 	 */

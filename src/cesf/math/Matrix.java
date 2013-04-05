@@ -1,20 +1,21 @@
 package cesf.math;
 
-/** Classe de representaci&oacute; i manipulaci&oacute; de matrius de nombres reals.
+/** 
+ * Classe de representaci&oacute; i manipulaci&oacute; de matrius de nombres reals.
  * <p>Recopilaci&oacute; de funcions b&agrave;siques de c&agrave;lcul sobre matrius M x N.</p>
  * <p>Aquesta &eacute;s una classe inmutable.</p>
- * @author Iv&aacute;n Raja
+ * @author JordiCesf
  */
 final public class Matrix {
-    
     private final int M;             
     private final int N;             
     private final double[][] data;   
 
-    /** Constructor de la classe Matrix.
-     * <p>Crea una matriu M x N amb zeros</p>
-     * @param M N&uacute;mero de files
-     * @param N N&uacute;mero de columnes
+    /**
+     *  Constructor de la classe Matrix.
+     * <p>Crea una matriu M per N amb zeros</p>
+     * @param M N&uacute;mero de files.
+     * @param N N&uacute;mero de columnes.
      */
     public Matrix(int M, int N) {
         this.M = M;
@@ -22,9 +23,10 @@ final public class Matrix {
         data = new double[M][N];
     }
 
-    /** Constructor de la classe Matrix.
-     * <p>Crea una matriu a partir d'una matriu bidimensional proporcionada.</p>
-     * @param data Matriu bidimensional
+    /**
+     *  Aix&ograve; &eacute;s el constructor de la classe Matrix.
+     * <p>Crea una matriu a partir d'una matriu bidimensional proporcionada anteriorment.</p>
+     * @param data Matriu bidimensional.
      */
     public Matrix(double[][] data) {
         M = data.length;
@@ -35,17 +37,19 @@ final public class Matrix {
             	this.data[i][j] = data[i][j];
     }
 
-    /** Constructor de c&ograve;pia
-     * @param A Matriu M x N
+    /**
+     *  Constructor de c&ograve;pia
+     * @param A Matriu M per N
      */
     private Matrix(Matrix A) {
     	this(A.data); 
     }
 
-    /** Funci&oacute; que retorna una matriu MxN amb valors entre 0 i 1.
+    /** 
+     * Funci&oacute; que retorna una matriu M per N amb valors entre 0 i 1.
      * @param M N&uacute;mero de files
      * @param N N&uacute;mero de columnes
-     * @return Matriu M x N aleat&ograve;ria.
+     * @return Matriu M  per N aleat&ograve;ria.
      */
     public static Matrix random(int M, int N) {
         Matrix A = new Matrix(M, N);
@@ -55,7 +59,8 @@ final public class Matrix {
         return A;
     }
 
-    /** Funci&oacute; que retorna una matriu MxN identitat (uns a la diagonal).
+    /** 
+     * Funci&oacute; que retorna una matriu M per N identitat (n&uacute;meros uns a la diagonal).
      * @param N N&uacute;mero de columnes
      * @return Matriu M x N identitat
      */
@@ -66,7 +71,8 @@ final public class Matrix {
         return I;
     }
 
-    /** Funci&oacute; que intercanvia les files "i" i "j".
+    /** 
+     * Funci&oacute; que intercanvia les files "i" i "j".
      * @param i Una fila
      * @param j Una fila
      */
@@ -76,9 +82,10 @@ final public class Matrix {
         data[j] = temp;
     }
 
-    /** Funci&oacute; que intercanvia les columnes "i" i "j".
-     * @param i Una columna
-     * @param j Una columna
+    /** 
+     * Funci&oacute; que intercanvia les columnes "i" i "j".
+     * @param i una columna
+     * @param j una columna
      */
     public void swapColumns(int i, int j) {
     	for (int r = 0; r < M; r++) {
@@ -88,7 +95,9 @@ final public class Matrix {
     	}
     }
 
-    /** Funci&oacute; que crea i retorna la matriu transposada de la matriu actual. 
+    /** 
+     * <p>Funci&oacute; que crea i retorna la matriu transposada de la matriu actual.</p>
+     * 
      * @return Matriu transposada de l'actual.
      */
     public Matrix transpose() {
@@ -99,7 +108,8 @@ final public class Matrix {
         return A;
     }
 
-    /** Funci&oacute; que suma dues matrius i retorna el resultat.
+    /** 
+     * <p>Funci&oacute; que suma dues matrius i retorna el resultat.</p>
      * @param B Una matriu
      * @return Suma de dues matrius.
      */
@@ -114,7 +124,8 @@ final public class Matrix {
         return C;
     }
 
-    /** Funci&oacute; que resta dues matrius i retorna el resultat.
+    /** 
+     * <p>Funci&oacute; que resta dues matrius i retorna el resultat.</p>
      * @param B Una matriu
      * @return Resta de dues matrius.
      */
@@ -129,7 +140,8 @@ final public class Matrix {
         return C;
     }
 
-    /** Funci&oacute; que compara dues matrius.
+    /** 
+     * <p>Funci&oacute; que compara dues matrius.</p>
      * <p>La comparaci&oacute; es fa a partir dels valors de les mateixes.</p>
      * @param B Una matriu
      * @return Retorna verdader si les matrius s&oacute;n iguals. Retorna fals en cas contrari.
@@ -145,8 +157,9 @@ final public class Matrix {
         return true;
     }
 
-    /** Funci&oacute; que multiplica dues matrius i retorna el resultat.
-     * @param B Una matriu
+    /**
+     *  <p>Funci&oacute; que multiplica dues matrius i retorna el resultat.</p>
+     * @param B Una matriu.
      * @return Multiplicaci&oacute; de dues matrius.
      */
     public Matrix multiply(Matrix B) {
@@ -161,7 +174,8 @@ final public class Matrix {
         return C;
     }
 
-    /** Funci&oacute; que soluciona el sistema a partir d'una matriu proporcionada.
+    /**
+     *  <p>Funci&oacute; que soluciona el sistema a partir d'una matriu proporcionada.</p>
      * <p>La matriu proporcionada ha de ser d'una sola columna i tenir els resultats de les equacions.</p>
      * <p>La matriu actual ha de contenir els coeficients i tenir el rang adient per ser resoluble (a m&eacute;s de ser quadrada).</p>
      * @param rhs Una matriu d'una sola columna
@@ -201,8 +215,9 @@ final public class Matrix {
         return x;
     }
 
-    /** Funci&oacute; que retorna una representaci&oacute; en cadena de text.
-	 * @return Representaci&oacute; formatada en cadena de text.
+    /** 
+     * <p>Funcio que retorna una representcio en cadena de text.</p>
+	 * @return Representacio formatada en cadena de text.
 	 */
     public String toString() {
     	String res = "";
